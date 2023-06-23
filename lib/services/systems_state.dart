@@ -303,7 +303,7 @@ class SystemsState {
     _codeRuntimeSub = _client.subscribe(
         '/AdvantageKit/RealOutputs/LoggedRobot/FullCycleMS', 0.033);
     _inputVoltageSub =
-        _client.subscribe('/SmartDashboard/RIOInputVoltage', 0.033);
+        _client.subscribe('/AdvantageKit/SystemStats/BatteryVoltage', 0.033);
     _canUtilSub = _client.subscribe(
         '/AdvantageKit/SystemStats/CANBus/Utilization', 0.033);
 
@@ -339,12 +339,12 @@ class SystemsState {
     _motorTempSubs
         .add(_client.subscribe('/SmartDashboard/Manhattan/ArmTemp', 1.0));
 
-    _swerveCheckRanSub =
-        _client.subscribe('/SmartDashboard/SystemStatus/Swerve/CheckRan', 0.1);
-    _swerveStatusSub =
-        _client.subscribe('/SmartDashboard/SystemStatus/Swerve/Status', 0.1);
-    _swerveLastFaultSub =
-        _client.subscribe('/SmartDashboard/SystemStatus/Swerve/LastFault', 0.1);
+    _swerveCheckRanSub = _client.subscribe(
+        '/AdvantageKit/RealOutputs/SystemStatus/Drivetrain/CheckRan', 0.1);
+    _swerveStatusSub = _client.subscribe(
+        '/AdvantageKit/RealOutputs/SystemStatus/Drivetrain/Status', 0.1);
+    _swerveLastFaultSub = _client.subscribe(
+        '/AdvantageKit/RealOutputs/SystemStatus/Drivetrain/LastFault', 0.1);
 
     _flCheckRanSub = _client.subscribe(
         '/SmartDashboard/SystemStatus/FLSwerveModule/CheckRan', 0.1);
@@ -410,7 +410,7 @@ class SystemsState {
         '/SmartDashboard/SystemStatus/Manhattan/LastFault', 0.1);
 
     _swerveCheckRunningTopic = _client.publishNewTopic(
-        '/SmartDashboard/SystemStatus/Swerve/SystemCheck/running',
+        '/SmartDashboard/SystemStatus/Drivetrain/SystemCheck/running',
         NT4TypeStr.kBool);
     _turretCheckRunningTopic = _client.publishNewTopic(
         '/SmartDashboard/SystemStatus/Turret/SystemCheck/running',
