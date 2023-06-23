@@ -28,9 +28,18 @@ class _SystemsPageState extends State<SystemsPage> {
             height: 400,
             child: FittedBox(
               fit: BoxFit.contain,
-              child: Image.asset(
-                'images/highrise.png',
-                filterQuality: FilterQuality.medium,
+              child: Column(
+                children: [
+                  Image.asset(
+                    'images/3061.png',
+                    filterQuality: FilterQuality.medium,
+                  ),
+                  const Text(
+                    'forked from Ranger Robotics',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 84),
+                  ),
+                ],
               ),
             ),
           ),
