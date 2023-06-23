@@ -5,7 +5,8 @@ import 'package:pit_display/model/match.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class TBA {
-  static const _apiKey = 'YOUR_API_KEY';
+  static const _apiKey =
+      'zuz2hZHZJjx5u45ZwCHg6OpS9Jo5KlsuWCWCk4dDY4cDIdvHBXnAHipoSOPaELXi';
 
   static SharedPreferences? _prefs;
 
