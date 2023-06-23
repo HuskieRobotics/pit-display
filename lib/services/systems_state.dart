@@ -1,8 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:pit_display/services/nt4.dart';
 
 class SystemsState {
-  static const String _robotAddress =
-      '10.30.15.2'; //kDebugMode ? '127.0.0.1' : '10.30.15.2';
+  static const String _robotAddress = kDebugMode ? '127.0.0.1' : '10.30.61.2';
 
   static bool _connected = false;
   static late NT4Subscription _codeRuntimeSub;
