@@ -8,7 +8,7 @@ class SystemsState {
   static late NT4Subscription _codeRuntimeSub;
   static late NT4Subscription _inputVoltageSub;
   static late NT4Subscription _canUtilSub;
-  static final List<NT4Subscription> _pdhChannelSubs = [];
+  static late NT4Subscription _pdhChannelSub;
   static final List<NT4Subscription> _motorTempSubs = [];
 
   static late NT4Subscription _swerveCheckRanSub;
@@ -112,9 +112,10 @@ class SystemsState {
   }
 
   static Stream<double> pdhChannel(int channel) async* {
-    await for (Object? value in _pdhChannelSubs[channel].periodicStream()) {
+    await for (Object? value in _pdhChannelSub.periodicStream()) {
       if (value != null) {
-        yield value as double;
+        List channels = value as List;
+        yield channels[channel] as double;
       }
     }
   }
@@ -306,10 +307,8 @@ class SystemsState {
         _client.subscribe('/AdvantageKit/SystemStats/BatteryVoltage', 0.033);
     _canUtilSub = _client.subscribe(
         '/AdvantageKit/SystemStats/CANBus/Utilization', 0.033);
-
-    for (int i = 0; i <= 23; i++) {
-      _pdhChannelSubs.add(_client.subscribe('/SmartDashboard/PDH/Chan$i', 0.1));
-    }
+    _pdhChannelSub = _client.subscribe(
+        '/AdvantageKit/PowerDistribution/ChannelCurrent', 0.1);
 
     _motorTempSubs
         .add(_client.subscribe('/AdvantageKit/Mod0/DriveTempCelsius', 1.0));
@@ -347,32 +346,32 @@ class SystemsState {
         '/AdvantageKit/RealOutputs/SystemStatus/Drivetrain/LastFault', 0.1);
 
     _flCheckRanSub = _client.subscribe(
-        '/SmartDashboard/SystemStatus/FLSwerveModule/CheckRan', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/Mod 0/CheckRan', 0.1);
     _flStatusSub = _client.subscribe(
-        '/SmartDashboard/SystemStatus/FLSwerveModule/Status', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/Mod 0/Status', 0.1);
     _flLastFaultSub = _client.subscribe(
-        '/SmartDashboard/SystemStatus/FLSwerveModule/LastFault', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/Mod 0/LastFault', 0.1);
 
     _frCheckRanSub = _client.subscribe(
-        '/SmartDashboard/SystemStatus/FRSwerveModule/CheckRan', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/Mod 1/CheckRan', 0.1);
     _frStatusSub = _client.subscribe(
-        '/SmartDashboard/SystemStatus/FRSwerveModule/Status', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/Mod 1/Status', 0.1);
     _frLastFaultSub = _client.subscribe(
-        '/SmartDashboard/SystemStatus/FRSwerveModule/LastFault', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/Mod 1/LastFault', 0.1);
 
     _blCheckRanSub = _client.subscribe(
-        '/SmartDashboard/SystemStatus/BLSwerveModule/CheckRan', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/Mod 2/CheckRan', 0.1);
     _blStatusSub = _client.subscribe(
-        '/SmartDashboard/SystemStatus/BLSwerveModule/Status', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/Mod 2/Status', 0.1);
     _blLastFaultSub = _client.subscribe(
-        '/SmartDashboard/SystemStatus/BLSwerveModule/LastFault', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/Mod 2/LastFault', 0.1);
 
     _brCheckRanSub = _client.subscribe(
-        '/SmartDashboard/SystemStatus/BRSwerveModule/CheckRan', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/Mod 3/CheckRan', 0.1);
     _brStatusSub = _client.subscribe(
-        '/SmartDashboard/SystemStatus/BRSwerveModule/Status', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/Mod 3/Status', 0.1);
     _brLastFaultSub = _client.subscribe(
-        '/SmartDashboard/SystemStatus/BRSwerveModule/LastFault', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/Mod 3/LastFault', 0.1);
 
     _turretCheckRanSub =
         _client.subscribe('/SmartDashboard/SystemStatus/Turret/CheckRan', 0.1);
