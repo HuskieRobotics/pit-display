@@ -300,32 +300,33 @@ class SystemsState {
       },
     );
 
-    _codeRuntimeSub =
-        _client.subscribe('/SmartDashboard/RobotPeriodicMS', 0.033);
+    _codeRuntimeSub = _client.subscribe(
+        '/AdvantageKit/RealOutputs/LoggedRobot/FullCycleMS', 0.033);
     _inputVoltageSub =
         _client.subscribe('/SmartDashboard/RIOInputVoltage', 0.033);
-    _canUtilSub = _client.subscribe('/SmartDashboard/RIOCANUtil', 0.033);
+    _canUtilSub = _client.subscribe(
+        '/AdvantageKit/SystemStats/CANBus/Utilization', 0.033);
 
     for (int i = 0; i <= 23; i++) {
       _pdhChannelSubs.add(_client.subscribe('/SmartDashboard/PDH/Chan$i', 0.1));
     }
 
-    _motorTempSubs.add(
-        _client.subscribe('/SmartDashboard/FLSwerveModule/DriveTemp', 1.0));
-    _motorTempSubs.add(
-        _client.subscribe('/SmartDashboard/FLSwerveModule/RotationTemp', 1.0));
-    _motorTempSubs.add(
-        _client.subscribe('/SmartDashboard/FRSwerveModule/DriveTemp', 1.0));
-    _motorTempSubs.add(
-        _client.subscribe('/SmartDashboard/FRSwerveModule/RotationTemp', 1.0));
-    _motorTempSubs.add(
-        _client.subscribe('/SmartDashboard/BLSwerveModule/DriveTemp', 1.0));
-    _motorTempSubs.add(
-        _client.subscribe('/SmartDashboard/BLSwerveModule/RotationTemp', 1.0));
-    _motorTempSubs.add(
-        _client.subscribe('/SmartDashboard/BRSwerveModule/DriveTemp', 1.0));
-    _motorTempSubs.add(
-        _client.subscribe('/SmartDashboard/BRSwerveModule/RotationTemp', 1.0));
+    _motorTempSubs
+        .add(_client.subscribe('/AdvantageKit/Mod0/DriveTempCelsius', 1.0));
+    _motorTempSubs
+        .add(_client.subscribe('/AdvantageKit/Mod0/AngleTempCelsius', 1.0));
+    _motorTempSubs
+        .add(_client.subscribe('/AdvantageKit/Mod1/DriveTempCelsius', 1.0));
+    _motorTempSubs
+        .add(_client.subscribe('/AdvantageKit/Mod1/AngleTempCelsius', 1.0));
+    _motorTempSubs
+        .add(_client.subscribe('/AdvantageKit/Mod2/DriveTempCelsius', 1.0));
+    _motorTempSubs
+        .add(_client.subscribe('/AdvantageKit/Mod2/AngleTempCelsius', 1.0));
+    _motorTempSubs
+        .add(_client.subscribe('/AdvantageKit/Mod3/DriveTempCelsius', 1.0));
+    _motorTempSubs
+        .add(_client.subscribe('/AdvantageKit/Mod3/AngleTempCelsius', 1.0));
     _motorTempSubs
         .add(_client.subscribe('/SmartDashboard/PinkArm/JointTemp', 1.0));
     _motorTempSubs
