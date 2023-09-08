@@ -38,7 +38,7 @@ class _TwitchViewWindowsState extends State<TwitchViewWindows> {
       await _controller.setBackgroundColor(Colors.transparent);
       await _controller.setPopupWindowPolicy(WebviewPopupWindowPolicy.deny);
       await _controller.loadUrl(
-          'https://player.twitch.tv/?channel=$_twitchChannel&parent=pitdisplay.rangerrobotics.org');
+          'https://player.twitch.tv/?channel=$_twitchChannel&parent=team3061.org');
 
       if (!mounted) {
         return;
