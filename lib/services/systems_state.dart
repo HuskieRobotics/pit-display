@@ -346,32 +346,32 @@ class SystemsState {
         '/AdvantageKit/RealOutputs/SystemStatus/Drivetrain/LastFault', 0.1);
 
     _flCheckRanSub = _client.subscribe(
-        '/AdvantageKit/RealOutputs/SystemStatus/Mod 0/CheckRan', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/SwerveModule0/CheckRan', 0.1);
     _flStatusSub = _client.subscribe(
-        '/AdvantageKit/RealOutputs/SystemStatus/Mod 0/Status', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/SwerveModule0/Status', 0.1);
     _flLastFaultSub = _client.subscribe(
-        '/AdvantageKit/RealOutputs/SystemStatus/Mod 0/LastFault', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/SwerveModule0/LastFault', 0.1);
 
     _frCheckRanSub = _client.subscribe(
-        '/AdvantageKit/RealOutputs/SystemStatus/Mod 1/CheckRan', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/SwerveModule1/CheckRan', 0.1);
     _frStatusSub = _client.subscribe(
-        '/AdvantageKit/RealOutputs/SystemStatus/Mod 1/Status', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/SwerveModule1/Status', 0.1);
     _frLastFaultSub = _client.subscribe(
-        '/AdvantageKit/RealOutputs/SystemStatus/Mod 1/LastFault', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/SwerveModule1/LastFault', 0.1);
 
     _blCheckRanSub = _client.subscribe(
-        '/AdvantageKit/RealOutputs/SystemStatus/Mod 2/CheckRan', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/SwerveModule2/CheckRan', 0.1);
     _blStatusSub = _client.subscribe(
-        '/AdvantageKit/RealOutputs/SystemStatus/Mod 2/Status', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/SwerveModule2/Status', 0.1);
     _blLastFaultSub = _client.subscribe(
-        '/AdvantageKit/RealOutputs/SystemStatus/Mod 2/LastFault', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/SwerveModule2/LastFault', 0.1);
 
     _brCheckRanSub = _client.subscribe(
-        '/AdvantageKit/RealOutputs/SystemStatus/Mod 3/CheckRan', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/SwerveModule3/CheckRan', 0.1);
     _brStatusSub = _client.subscribe(
-        '/AdvantageKit/RealOutputs/SystemStatus/Mod 3/Status', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/SwerveModule3/Status', 0.1);
     _brLastFaultSub = _client.subscribe(
-        '/AdvantageKit/RealOutputs/SystemStatus/Mod 3/LastFault', 0.1);
+        '/AdvantageKit/RealOutputs/SystemStatus/SwerveModule3/LastFault', 0.1);
 
     _turretCheckRanSub =
         _client.subscribe('/SmartDashboard/SystemStatus/Turret/CheckRan', 0.1);
